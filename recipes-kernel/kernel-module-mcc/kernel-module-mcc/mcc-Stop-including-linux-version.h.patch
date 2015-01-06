@@ -1,0 +1,28 @@
+From 07c77c1ed8a2527f6d7ab3681eb0d761cf21e440 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Tue, 6 Jan 2015 11:55:40 -0200
+Subject: [PATCH] mcc: Stop including linux/version.h
+Organization: O.S. Systems Software LTDA.
+
+Upstream-Status: Pending
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ mcc_linux.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/mcc_linux.c b/mcc_linux.c
+index 5ec07d6..e8b76d0 100644
+--- a/mcc_linux.c
++++ b/mcc_linux.c
+@@ -16,7 +16,6 @@
+  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+ #include <linux/module.h>
+-#include <linux/version.h>
+ #include <linux/kernel.h>
+ #include <linux/types.h>
+ #include <linux/kdev_t.h>
+-- 
+2.1.4
+
