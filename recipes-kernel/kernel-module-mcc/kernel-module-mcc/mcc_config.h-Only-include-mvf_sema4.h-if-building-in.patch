@@ -1,0 +1,35 @@
+From a98bba72f70dc6a5785580779ef138e68a73b108 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Tue, 6 Jan 2015 13:39:50 -0200
+Subject: [PATCH] mcc_config.h: Only include mvf_sema4.h if building in kernel
+Organization: O.S. Systems Software LTDA.
+
+When mcc_config.h is used to make application we shouldn't include
+mvf_sema4.h as it is an internal symbol of kernel and shouldn't be
+directly referenced by user space applications using the MCC
+interface.
+
+Upstream-Status: Pending
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ mcc_config.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/mcc_config.h b/mcc_config.h
+index 6a12c6d..5f86611 100644
+--- a/mcc_config.h
++++ b/mcc_config.h
+@@ -18,7 +18,9 @@
+ #ifndef __MCC_CONFIG__
+ #define __MCC_CONFIG__
+ 
++#ifdef __KERNEL__
+ #include <linux/mvf_sema4.h>
++#endif
+ 
+ /* used OS */
+ #define MCC_OS_USED                    (MCC_LINUX)
+-- 
+2.1.4
+
